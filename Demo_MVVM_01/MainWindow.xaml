@@ -1,0 +1,63 @@
+﻿<Window x:Class="Demo_MVVM_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo_MVVM_01"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="150" Width="300"
+        DataContext="{Binding Source={StaticResource MainVM}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Row="0" Grid.Column="0"
+                 Background="LightBlue"
+                 Text="{Binding Message}"/>
+
+        <TextBox Grid.Row="1" Grid.Column="0"
+                 Background="Lime"
+                 Text="{Binding Message2, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                   Background="LightPink"
+                   Text="{Binding Count}"
+                   FontSize="30"
+                   VerticalAlignment="Stretch"
+                   TextAlignment="Center"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" 
+                Grid.ColumnSpan="2"
+                Text="{Binding CountInfo}"
+                TextAlignment="Center"
+                Background="Gold"
+                Foreground="ForestGreen"
+                FontWeight="DemiBold"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Text="Demo 01 - Intro MVVM"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontWeight="Bold"
+                   FontFamily="Comic Sans MS"
+                   Foreground="Crimson">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Chartreuse"
+                                  ShadowDepth="6"
+                                  Opacity="0.7"
+                                  Direction="340"
+                                  BlurRadius="4" />
+            </TextBlock.Effect>
+        </TextBlock>
+
+    </Grid>
+</Window>
